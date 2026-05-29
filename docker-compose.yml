@@ -1,0 +1,11 @@
+services:
+  ocr-api:
+    build: .
+    container_name: ocr-fastapi-test
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./models/weights:/app/models/weights
+    environment:
+      - PYTHONUNBUFFERED=1
