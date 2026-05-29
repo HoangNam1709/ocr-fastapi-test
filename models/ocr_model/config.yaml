@@ -1,0 +1,30 @@
+pipeline:
+  model_dir: None
+
+  model_ocr_dir: /tmp/vgg_transformer.pth
+
+  backend: onnx
+  onnx_variant: alex
+
+  device: cpu
+  visiable_device_idx: "0"
+  batch_size: 8
+
+  threshold: 0.35
+
+  threshold_by_class:
+    text: 0.3
+    table: 0.5
+    figure: 0.4
+
+  layout_nms: true
+
+  layout_unclip_ratio:
+    text: 1.5
+    table: 2.0
+
+  layout_merge_bboxes_mode:
+    text: union
+    table: intersection
+
+  benchmark_stats: false
